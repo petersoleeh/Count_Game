@@ -161,9 +161,9 @@ p.nominalBounds = new cjs.Rectangle(0,0,300,400);
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.instance = new lib.RestartButton();
-	this.instance.setTransform(196.5,283.1,1,1,0,0,0,121.5,51);
-	new cjs.ButtonHelper(this.instance, 0, 1, 2, false, new lib.RestartButton(), 3);
+	this.restartButton = new lib.RestartButton();
+	this.restartButton.setTransform(196.5,283.1,1,1,0,0,0,121.5,51);
+	new cjs.ButtonHelper(this.restartButton, 0, 1, 2, false, new lib.RestartButton(), 3);
 
 	this.shape = new cjs.Shape();
 	this.shape.graphics.f("#E6EFF8").s().p("AgcBrIAAg1IA6AAIAAA1gAgTAnIgLhgIAAgxIA+AAIAAAxIgNBgg");
@@ -197,7 +197,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,300,400);
 	this.shape_7.graphics.f("#343638").s().p("A3bfPMAAAg+eMAu2AAAMAAAA+eg");
 	this.shape_7.setTransform(150,200);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_7},{t:this.shape_6},{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape},{t:this.instance}]}).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_7},{t:this.shape_6},{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape},{t:this.restartButton}]}).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(0,0,300,400);
