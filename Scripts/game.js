@@ -25,12 +25,13 @@ class NumberedBox extends createjs.Container{
     }
     handleClick(){
         this.game.handleClick(this);
+        createjs.Sound.play("Jump");
     }
 }
 //The base of the game
 class GameData{
     constructor(){
-        this.amountOfBox = 3;
+        this.amountOfBox = 20;
         this.resetData();
     }
     resetData(){
@@ -51,6 +52,9 @@ class GameData{
 class Game{
     constructor(){
         console.log(`welcome to the Game. Version ${this.version()}`);
+
+        //Sound them Up
+        this.loadSound();
 
         //provide the canvas we want to draw on.
         this.canvas = document.getElementById("game-canvas");
@@ -85,6 +89,12 @@ class Game{
     version(){
         return '1.0.0';
     }
+    loadSound(){
+        // createjs.Sound.on("fileload", handleLoad);
+        createjs.Sound.registerSound("soundfx/jump7.aiff", "Jump");
+        createjs.Sound.registerSound("soundfx/game-over.aiff", "Game Over");
+        createjs.Sound.alternateExtensions = ["ogg", "wav"];
+    }
     restartGame(){
         this.gameData.resetData();
         this.stage.removeAllChildren();
@@ -112,12 +122,16 @@ class Game{
 
             // gameover
             if(this.gameData.isGameWin()){
+
+                createjs.Sound.play("Game Over");
+
                 var gameOverView = new lib.GameOverView();
                 this.stage.addChild(gameOverView);
 
                 gameOverView.restartButton.on('click', (function(){
-                    this.restartGame();
+                    createjs.Sound.play("Jump");
 
+                    this.restartGame();
                 }).bind(this));
             
             }
